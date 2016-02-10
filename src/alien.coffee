@@ -52,10 +52,27 @@ class Alien
     tobe
 
 
+  generateAlien: () ->
+    r = (m) => ~~(Math.random() * m + 1)
+    q = () =>
+      l = r(11)
+      g = r(5)
+      a = []
+      i = 0
+      while i < l
+        j = i * g
+        a.push( j )
+        a.unshift(-j) if i
+        i++
+      a
+    {
+      x: q()
+      y: q()
+    }
 
   drawGrid: (pixels) ->
 
-    @canvas.aliens = a()
+    @canvas.aliens = @generateAlien()
 
     r = ~~(Math.random() * 128 + 64)
     g = ~~(Math.random() * 128 + 64)
@@ -108,20 +125,3 @@ class Alien
 
 
 window.Alien = Alien
-
-`
-function a() {
-  function r( m ) { return ~~(Math.random() * m + 1)};
-  function q() {
-    var l = r(11), g = r(5), a = [], i = 0;
-    while ( i < l ) {
-      j = i * g;
-      a.push( j );
-      if ( i ) a.unshift(-j)
-      i++;
-    }
-    return a;
-  }
-  return { x: q(), y: q() };
-}
-`
