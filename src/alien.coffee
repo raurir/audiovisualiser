@@ -122,6 +122,4 @@ class Alien
     @seed()
     @drawGrid()
 
-
-
 window.Alien = Alien
