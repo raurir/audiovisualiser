@@ -115,3 +115,5 @@ FFT.prototype.forward = function(buffer)
 	}
 	return this.calculateSpectrum();
 };
+
+window.FFT = FFT;
