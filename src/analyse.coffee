@@ -43,6 +43,7 @@ class Analyse
     if @node
       @node.disconnect()
     @audio = new Audio()
+    @audio.crossOrigin = "anonymous";
     @audio.preload = 'auto'
     # @audio.loop = true
     @audio.controls = true
